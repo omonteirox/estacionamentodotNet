@@ -1,12 +1,14 @@
 ﻿using estacionamento.DTOS;
 using estacionamento.Models;
 using estacionamento.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace estacionamento.Controllers
 {
     [Controller]
     [Route("api/[controller]")]
+    [Authorize(Policy = "AdminOnly")]
     public class EstablishmentController : ControllerBase
     {
         private readonly EstablishmentService _service;
