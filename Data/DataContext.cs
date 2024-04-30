@@ -9,6 +9,7 @@ namespace estacionamento.Data
         public virtual DbSet<Establishment> Establishments { get; set; }
         public DbSet<InOutEstablishment> InOutEstablishments { get; set; }
         public virtual DbSet<Vehicle> Vehicles { get; set; }
+        public virtual DbSet<User> Users { get; set; }
         public DataContext()
         {
             
@@ -22,8 +23,10 @@ namespace estacionamento.Data
             modelBuilder.ApplyConfiguration(new EstablishmentMap());
             modelBuilder.ApplyConfiguration(new VehicleMap());
             modelBuilder.ApplyConfiguration(new InOutEstablishmentMap());
+            modelBuilder.ApplyConfiguration(new UserMap());
+        
         }
-
-       
     }
+
 }
+
