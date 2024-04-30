@@ -5,9 +5,12 @@
 - Ef Core
 - Npgsql
 - OpenApi(Swagger)
+- Autenticação e Autorização implementado
+- Salvando o Hash no banco da senha do usuário.
 
 
 # O que falta ser implementado?
 
-- Autenticação e autorização
-- Salvar a senha do usuário em hash no banco
+- Token com validade de 1h, ao invés de ficar sempre gerando 1 token novo a cada req
+
+
