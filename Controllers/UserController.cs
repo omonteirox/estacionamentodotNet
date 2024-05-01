@@ -24,7 +24,7 @@ namespace estacionamento.Controllers
             {
                 var result = await _service.GetByIdAsync(id);
                 var hash = TokenHelper.GenerateToken(result.UserName, result.TypeUserEnum);
-                var dto = new UserDTO(result.Id,result.UserName, result.PasswordHash, hash );
+                var dto = new UserDTO(result.Id,result.UserName, result.PasswordHash, hash , DateTime.Now.AddHours(1).ToUniversalTime());
                 return Ok(new ResponseModel<UserDTO>(dto));
             }
             catch (Exception ex)
@@ -54,8 +54,8 @@ namespace estacionamento.Controllers
             try
             {
                 var result = await _service.Authenticate(user.UserName, user.PasswordHash);
-                var hash = TokenHelper.GenerateToken(result.UserName, result.TypeUserEnum);
-                var dto = new UserDTO(result.Id, result.UserName, result.PasswordHash, hash);
+                var newToken = TokenHelper.GenerateToken(result.UserName, result.TypeUserEnum);
+                var dto = new UserDTO(result.Id, result.UserName, result.PasswordHash, newToken, DateTime.Now.AddHours(1).ToUniversalTime());
                 return Ok(new ResponseModel<UserDTO>(dto));
             }
             catch (Exception ex)

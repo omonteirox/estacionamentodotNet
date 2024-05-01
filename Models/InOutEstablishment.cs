@@ -8,7 +8,7 @@ namespace estacionamento.Models
         public int Id { get; init; }
         [JsonConverter(typeof(CustomDateTimeConverter))]
         
-        public DateTime DateStart { get; set; } = DateTime.Now.ToUniversalTime();
+        public DateTime DateStart { get; set; } = DateTime.UtcNow;
         [JsonConverter(typeof(CustomDateTimeConverter))]
 
         public DateTime? DateEnd { get; set; } = null;

@@ -35,5 +35,7 @@ namespace estacionamento.Utils
             var token = tokenHandler.CreateToken(tokenDescriptor);
             return tokenHandler.WriteToken(token);
         }
+
+
     }
 }
